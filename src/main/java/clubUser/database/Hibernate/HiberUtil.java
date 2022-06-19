@@ -1,6 +1,6 @@
 package clubUser.database.Hibernate;
 
-import clubUser.Admin;
+import clubUser.Rank;
 import clubUser.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -14,7 +14,7 @@ public class HiberUtil {
 
         try {
             Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
-            configuration.addAnnotatedClass(Admin.class);
+            configuration.addAnnotatedClass(Rank.class);
             configuration.addAnnotatedClass(User.class);
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();

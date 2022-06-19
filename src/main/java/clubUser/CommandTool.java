@@ -10,14 +10,14 @@ public class CommandTool {
         clubUserSystem = new ClubUserSystem();
     }
     public void parseCommand(String command) {
-        final String addAdmin = "(addadmin) ([a-zA-Z\\sа-яА-Я\\- W$0-9]+;[a-zA-Z\\sа-яА-Я\\- W$0-9]+;[a-zA-Z\\sа-яА-Я\\- W$0-9@.]+;[a-zA-Z\\sа-яА-Я\\- W$0-9]+)";
+        final String addRank = "(addrank) ([a-zA-Z\\sа-яА-Я\\- W$0-9]+)";
         final String addUser = "(adduser) ([a-zA-Z\\sа-яА-Я\\- W$0-9]+;[a-zA-Z\\sа-яА-Я\\- W$0-9]+;[a-zA-Z\\sа-яА-Я\\- W$0-9@.]+)";
-        Matcher matcher = isPatternMatches(command, addAdmin);
+        Matcher matcher = isPatternMatches(command, addRank);
         if (matcher.find()) {
             String data = matcher.group(2);
             System.out.println(data);
             String[] adminData = data.split(";");
-            clubUserSystem.addAdmin(adminData[0], adminData[1], adminData[2], adminData[3]);
+            clubUserSystem.addRank(adminData[0]);
             System.out.println("Ok");
         }
         matcher = isPatternMatches(command, addUser);
