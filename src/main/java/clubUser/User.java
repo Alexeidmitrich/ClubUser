@@ -17,22 +17,29 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, length = 10)
     private int idUser;
+    @Column(nullable = false, length = 25)
     private String firstName;
+    @Column(nullable = false, length = 25)
     private String lastName;
+    @Column(nullable = false, length = 45)
     private String email;
+    private int idRank;
 
-    public User(int idUser, String firstName, String lastName, String email) {
+    public User(int idUser, String firstName, String lastName, String email, int idRank) {
         this.idUser = idUser;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.idRank = idRank;
     }
 
-    public User(String firstName, String lastName, String email){
+    public User(String firstName, String lastName, String email, int idRank){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.idRank = idRank;
     }
     @ManyToMany(mappedBy = "users")
     private Set<Rank>  ranks = new HashSet<>();

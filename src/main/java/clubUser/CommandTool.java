@@ -11,7 +11,7 @@ public class CommandTool {
     }
     public void parseCommand(String command) {
         final String addRank = "(addrank) ([a-zA-Z\\sа-яА-Я\\- W$0-9]+)";
-        final String addUser = "(adduser) ([a-zA-Z\\sа-яА-Я\\- W$0-9]+;[a-zA-Z\\sа-яА-Я\\- W$0-9]+;[a-zA-Z\\sа-яА-Я\\- W$0-9@.]+)";
+        final String addUser = "(adduser) ([a-zA-Z\\sа-яА-Я\\- W$0-9]+;[a-zA-Z\\sа-яА-Я\\- W$0-9]+;[a-zA-Z\\sа-яА-Я\\- W$0-9@.]+;[0-9]+)";
         Matcher matcher = isPatternMatches(command, addRank);
         if (matcher.find()) {
             String data = matcher.group(2);
@@ -25,7 +25,8 @@ public class CommandTool {
             String data = matcher.group(2);
             System.out.println(data);
             String [] userData = data.split(";");
-            clubUserSystem.addUser(userData[0],userData[1],userData[2]);
+            int id = Integer.parseInt(userData[3]);
+            clubUserSystem.addUser(userData[0],userData[1],userData[2],id);
         }
     }
     public Matcher isPatternMatches(String command, String regex){

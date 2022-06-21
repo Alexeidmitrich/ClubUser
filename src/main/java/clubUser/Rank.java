@@ -18,7 +18,9 @@ import java.util.List;
 public class Rank {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, length = 10)
     private int idRank;
+    @Column(nullable = false, length = 15)
     private String  rank;
 
 

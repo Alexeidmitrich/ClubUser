@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RankDAO {
 
-    List<Rank> getAllAdmin();
-    Rank getAdminById(int id);
-    void save (Rank admin);
+    List<Rank> getAllRank();
+    Rank getRankById(int id);
+    void save (Rank rank);
 }
